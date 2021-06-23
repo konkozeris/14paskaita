@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+</head>
+<style>
+    html {
+        font-size: 10px;
+    }
+    body {
+        max-width: 1920px;
+        margin: 0 auto;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        line-height: 2rem;
+        color: black;
+        background-color: white;
+    }
+    .container {
+        width: 100%;
+        margin: auto;
+    }
+    a {
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .area {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: space-between;
+        margin-left: auto;
+    }
+    .navbar-component {
+        background-color: white;
+        box-shadow: 0 2px 5px darkkhaki;
+    }
+    .brand {
+        display: block;
+        font-size: 1.6rem;
+        color: darksalmon;
+        margin: 2.2rem;
+    }
+    .list {
+        display: flex ;
+        
+    }
+    .item {
+        display: block;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        text-transform: uppercase;
+        color: rgb(61, 136, 136);
+        font: 1.1rem;
+        line-height: 6rem;
+    }
+    .item.-link {
+        border-bottom: 4px solid transparent;
+    }
+    .item.-link:hover {
+        color: deepskyblue;
+        border-bottom-color: crimson;
+
+    }
+    .icon, .icon:after, .icon:before{
+        display: block;
+        width: 2.4rem;
+        height: 0.3rem;
+        background-color: darkgoldenrod;
+        transition: background-color 0.3s linear, transform 0.3s linear;
+
+    }
+    .icon:after, .icon:before {
+        position:absolute;
+        content: '';
+    }
+    .icon:after {
+        top: 0.8rem;
+    }
+    .icon:before {
+        top: -0.8rem;
+    }
+    .icon {
+        position: relative;
+    }
+    .toggle {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        padding: 2.2rem;
+    }
+    .toggle.active .icon {
+        background-color: transparent;
+    }
+    .toggle.active .icon:before {
+        transform: translateY(0.8rem) rotate(45deg);
+    }
+    .toggle.active .icon:after {
+        transform: translateY(-0.8rem) rotate(-45deg);
+    }
+    .kvadratas {
+        background-color: red;
+        height: 20rem;
+        width: 100%;
+    }
+    @media screen and (max-width: 791px) {
+        .navbar-component {
+                padding-top: 0.125rem;
+                padding-bottom: 0.125rem;
+                position: absolute;
+                width: 100%;
+                top: 0;
+        }
+        .toggle {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0.8rem;
+        }
+        .list {
+            flex-flow: column wrap;
+            width: 100%;
+            display: none;
+        }
+        .list.active {
+            display: flex;
+        }
+        .area {
+            flex-direction: column;
+        }
+        .kvadratas {
+            top: 6.4rem;
+        }
+    }
+</style>
+<body>
+    <div class='container'>
+        <div class='navbar-component'>
+            <div class='navbar area'>
+                <a href="#" class='brand'>imone</a>
+                
+                <nav id='navigation' class='list'>
+                    <a href='#' class='item -link'>straipsniai</a>
+                    <a href='#' class='item -link'>projektai</a>
+                    <a href='#' class='item -link'>resursai</a>
+                    <a href='#' class='item -link'>apie mane</a>
+                    <a href='#' class='item -link'>pagrindinis</a>
+
+                <span class='item'>
+                    <i class='fa fa=search'></i>
+                </span>
+                </nav>
+
+                <button id='hamburger' class='toggle'>
+                    <span class='icon'></span>
+                </button>
+            </div>
+        </div>
+        <div class='kvadratas'></div>
+    </div>
+    <script>
+        document.querySelector('.toggle').onclick = function () {
+            this.classList.toggle('active');
+            document.querySelector('.list').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
